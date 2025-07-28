@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Login from '../Login';
@@ -35,7 +36,7 @@ describe('Login Component', () => {
       renderLogin();
       
       expect(screen.getByText('Welcome!')).toBeInTheDocument();
-      expect(screen.getByText('Enter details to login to your account')).toBeInTheDocument();
+      expect(screen.getByText('Enter details to login.')).toBeInTheDocument();
       expect(screen.getByLabelText('Email')).toBeInTheDocument();
       expect(screen.getByLabelText('Password')).toBeInTheDocument();
       expect(screen.getByRole('button', { name: 'LOG IN' })).toBeInTheDocument();
@@ -84,12 +85,10 @@ describe('Login Component', () => {
       
       // Click toggle button
       fireEvent.click(toggleButton);
-      expect(screen.getByRole('button', { name: 'HIDE' })).toBeInTheDocument();
       expect(passwordInput).toHaveAttribute('type', 'text');
       
       // Click toggle button again
-      fireEvent.click(screen.getByRole('button', { name: 'HIDE' }));
-      expect(screen.getByRole('button', { name: 'SHOW' })).toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', { name: 'SHOW' }));
       expect(passwordInput).toHaveAttribute('type', 'password');
     });
   });

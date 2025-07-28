@@ -57,10 +57,13 @@ npm run dev
 
 ## 🔐 Authentication
 
-Use these credentials to login:
+**⚠️ IMPORTANT FOR REVIEWERS:**
+Please use these credentials to login and test the application:
 
 - **Email**: `admin@lendsqr.com`
 - **Password**: `password`
+
+> **Note**: These are mock credentials for demonstration purposes. In a production environment, these would be securely managed through proper authentication systems.
 
 ## 📱 Pages Overview
 

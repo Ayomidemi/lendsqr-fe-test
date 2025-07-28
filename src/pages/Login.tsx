@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { mockApi } from '../services/api';
 import '../styles/Login.scss';
 
+
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -64,6 +65,9 @@ const Login: React.FC = () => {
           <div className="welcome-section">
             <h1 className="welcome-title">Welcome!</h1>
             <p className="welcome-subtitle">Enter details to login.</p>
+            <div className="reviewer-notice">
+              <p><strong>For Reviewers:</strong> Use <code>admin@lendsqr.com</code> / <code>password</code></p>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="login-form">

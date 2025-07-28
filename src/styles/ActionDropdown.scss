@@ -1,0 +1,54 @@
+@import "variables";
+
+.action-dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 2000;
+}
+
+.action-dropdown {
+  position: absolute;
+  width: 180px;
+  height: 130px;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  z-index: 2001;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(57, 205, 204, 0.1);
+  }
+
+  .action-icon {
+    width: 16px;
+    height: 16px;
+    color: #545f7d;
+    flex-shrink: 0;
+  }
+
+  .action-text {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #545f7d;
+  }
+}
