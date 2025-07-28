@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 // Reset and base styles
 * {
@@ -48,7 +48,7 @@ a {
   transition: color 0.2s ease;
 
   &:hover {
-    color: darken($primary-color, 10%);
+    color: #1a2f5a;
   }
 }
 

@@ -617,4 +617,4 @@ export const generateMoreUsers = (count: number): User[] => {
 };
 
 // Combine original users with generated users
-export const allUsers = [...mockUsers, ...generateMoreUsers(90)]; // 100 total users
+export const allUsers = [...mockUsers, ...generateMoreUsers(490)]; // 500 total users

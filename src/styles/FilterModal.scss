@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 .filter-modal-overlay {
   position: fixed;

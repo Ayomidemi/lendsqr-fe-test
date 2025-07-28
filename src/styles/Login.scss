@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 .login-container {
   position: relative;
@@ -345,7 +345,7 @@
           transition: color 0.2s ease;
 
           &:hover {
-            color: darken(#39cdcc, 10%);
+            color: #2ba3a3;
           }
         }
       }
@@ -374,7 +374,7 @@
         }
 
         &:hover:not(:disabled) {
-          background-color: darken(#39cdcc, 10%);
+          background-color: #2ba3a3;
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(57, 205, 204, 0.3);
         }

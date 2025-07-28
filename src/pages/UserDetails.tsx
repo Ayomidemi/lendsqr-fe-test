@@ -394,7 +394,7 @@ const GeneralDetails: React.FC<{ user: User }> = ({ user }) => {
   );
 };
 
-const Documents: React.FC<{ user: User }> = ({ user }) => {
+const Documents: React.FC<{ user: User }> = ({ user: _user }) => {
   return (
     <div className="documents">
       <h3>Documents</h3>
@@ -425,7 +425,7 @@ const BankDetails: React.FC<{ user: User }> = ({ user }) => {
   );
 };
 
-const Loans: React.FC<{ user: User }> = ({ user }) => {
+const Loans: React.FC<{ user: User }> = ({ user: _user }) => {
   return (
     <div className="loans">
       <h3>Loans</h3>
@@ -434,7 +434,7 @@ const Loans: React.FC<{ user: User }> = ({ user }) => {
   );
 };
 
-const Savings: React.FC<{ user: User }> = ({ user }) => {
+const Savings: React.FC<{ user: User }> = ({ user: _user }) => {
   return (
     <div className="savings">
       <h3>Savings</h3>
@@ -443,7 +443,7 @@ const Savings: React.FC<{ user: User }> = ({ user }) => {
   );
 };
 
-const AppAndSystem: React.FC<{ user: User }> = ({ user }) => {
+const AppAndSystem: React.FC<{ user: User }> = ({ user: _user }) => {
   return (
     <div className="app-and-system">
       <h3>App and System</h3>
