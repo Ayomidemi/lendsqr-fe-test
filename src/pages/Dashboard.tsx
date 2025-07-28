@@ -437,7 +437,7 @@ const Dashboard: React.FC = () => {
                             <div className="table-cell">{user.email}</div>
                             <div className="table-cell">{user.phoneNumber}</div>
                             <div className="table-cell">{user.dateJoined}</div>
-                            <div className="table-cell">
+                            <div className="table-cell status">
                               <span className={`status-badge ${user.status}`}>
                                 {user.status.charAt(0).toUpperCase() +
                                   user.status.slice(1)}

@@ -1,10 +1,10 @@
-@import 'variables';
+@import "variables";
 
 .login-container {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   overflow: hidden;
 
@@ -18,12 +18,10 @@
   position: relative;
   width: 50%;
   height: 100vh;
-  background: #FFFFFF;
+  background: #ffffff;
 
   @media (max-width: $breakpoint-lg) {
-    width: 100%;
-    height: auto;
-    min-height: 300px;
+    display: none; // Hide on tablet and below
   }
 
   .logo-section {
@@ -77,7 +75,7 @@
     .pablo-sign-in {
       width: 100%;
       height: 100%;
-      background: url('/pablo-sign-in.svg') no-repeat center center;
+      background: url("/pablo-sign-in.svg") no-repeat center center;
       background-size: contain;
 
       @media (max-width: $breakpoint-lg) {
@@ -92,12 +90,15 @@
   position: relative;
   width: 50%;
   height: 100vh;
-  background: #FFFFFF;
+  background: #ffffff;
 
   @media (max-width: $breakpoint-lg) {
     width: 100%;
-    height: auto;
+    height: 100vh;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .login-form-container {
@@ -107,7 +108,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
     padding: 0 100px;
     display: flex;
@@ -125,20 +126,46 @@
       box-shadow: none;
     }
 
+    .mobile-logo {
+      display: none; // Hidden on desktop
+      justify-content: center;
+      margin-bottom: 40px;
+
+      @media (max-width: $breakpoint-lg) {
+        display: flex; // Show on tablet and mobile
+      }
+
+      .mobile-logo-img {
+        width: 173.76px;
+        height: 36px;
+        object-fit: contain;
+      }
+    }
+
     .welcome-section {
       margin-bottom: 60px;
+
+      @media (max-width: $breakpoint-lg) {
+        text-align: center;
+      }
 
       .welcome-title {
         width: 183px;
         height: 55px;
-        font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 40px;
         line-height: 55px;
         letter-spacing: -0.04em;
-        color: #213F7D;
+        color: #213f7d;
         margin: 0 0 8px 0;
+
+        @media (max-width: $breakpoint-lg) {
+          width: auto;
+          height: auto;
+        }
 
         @media (max-width: $breakpoint-md) {
           font-size: 32px;
@@ -146,64 +173,76 @@
         }
       }
 
-              .welcome-subtitle {
-          width: 194px;
-          height: 28px;
-          font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      .welcome-subtitle {
+        width: 194px;
+        height: 28px;
+        font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 27px;
+        color: #545f7d;
+        margin: 0;
+
+        @media (max-width: $breakpoint-lg) {
+          width: auto;
+          height: auto;
+        }
+
+        @media (max-width: $breakpoint-md) {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+
+      .reviewer-notice {
+        margin-top: 20px;
+        padding: 12px 16px;
+        background-color: rgba(57, 205, 204, 0.1);
+        border: 1px solid #39cdcc;
+        border-radius: 6px;
+        max-width: 400px;
+
+        @media (max-width: $breakpoint-lg) {
+          margin: 20px auto 0;
+          text-align: center;
+        }
+
+        p {
+          margin: 0;
+          font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, sans-serif;
           font-style: normal;
           font-weight: 400;
-          font-size: 20px;
-          line-height: 27px;
-          color: #545F7D;
-          margin: 0;
+          font-size: 14px;
+          line-height: 19px;
+          color: #213f7d;
 
-          @media (max-width: $breakpoint-md) {
-            font-size: 18px;
-            line-height: 24px;
+          strong {
+            font-weight: 600;
+          }
+
+          code {
+            background-color: rgba(33, 63, 125, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+            font-size: 12px;
+            color: #213f7d;
           }
         }
 
-        .reviewer-notice {
-          margin-top: 20px;
-          padding: 12px 16px;
-          background-color: rgba(57, 205, 204, 0.1);
-          border: 1px solid #39CDCC;
-          border-radius: 6px;
-          max-width: 400px;
+        @media (max-width: $breakpoint-md) {
+          margin-top: 15px;
+          padding: 10px 12px;
 
           p {
-            margin: 0;
-            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 19px;
-            color: #213F7D;
-
-            strong {
-              font-weight: 600;
-            }
-
-            code {
-              background-color: rgba(33, 63, 125, 0.1);
-              padding: 2px 6px;
-              border-radius: 3px;
-              font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-              font-size: 12px;
-              color: #213F7D;
-            }
-          }
-
-          @media (max-width: $breakpoint-md) {
-            margin-top: 15px;
-            padding: 10px 12px;
-
-            p {
-              font-size: 13px;
-              line-height: 18px;
-            }
+            font-size: 13px;
+            line-height: 18px;
           }
         }
+      }
     }
 
     .login-form {
@@ -223,16 +262,17 @@
         .form-input {
           width: 447px;
           height: 50px;
-          background: #FFFFFF;
+          background: #ffffff;
           border: 2px solid rgba(84, 95, 125, 0.15);
           border-radius: 5px;
           padding: 0 16px;
-          font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
           line-height: 19px;
-          color: #545F7D;
+          color: #545f7d;
           transition: border-color 0.2s ease;
 
           @media (max-width: $breakpoint-lg) {
@@ -240,13 +280,13 @@
           }
 
           &::placeholder {
-            color: #545F7D;
+            color: #545f7d;
             opacity: 0.6;
           }
 
           &:focus {
             outline: none;
-            border-color: #39CDCC;
+            border-color: #39cdcc;
           }
 
           &.password-input {
@@ -269,7 +309,8 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, sans-serif;
             font-style: normal;
             font-weight: 600;
             font-size: 12px;
@@ -277,7 +318,7 @@
             text-align: center;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #39CDCC;
+            color: #39cdcc;
             cursor: pointer;
             padding: 4px 8px;
             border-radius: 3px;
@@ -290,7 +331,8 @@
         }
 
         .forgot-password {
-          font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, sans-serif;
           font-style: normal;
           font-weight: 600;
           font-size: 12px;
@@ -298,12 +340,12 @@
           text-align: left;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #39CDCC;
+          color: #39cdcc;
           text-decoration: none;
           transition: color 0.2s ease;
 
           &:hover {
-            color: darken(#39CDCC, 10%);
+            color: darken(#39cdcc, 10%);
           }
         }
       }
@@ -311,10 +353,11 @@
       .login-button {
         width: 447px;
         height: 48px;
-        background: #39CDCC;
+        background: #39cdcc;
         border: none;
         border-radius: 8px;
-        font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-family: "Avenir Next", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 14px;
@@ -322,7 +365,7 @@
         text-align: center;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: #FFFFFF;
+        color: #ffffff;
         cursor: pointer;
         transition: all 0.2s ease;
 
@@ -331,7 +374,7 @@
         }
 
         &:hover:not(:disabled) {
-          background-color: darken(#39CDCC, 10%);
+          background-color: darken(#39cdcc, 10%);
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(57, 205, 204, 0.3);
         }
@@ -342,7 +385,7 @@
         }
 
         &.loading {
-          background-color: #39CDCC;
+          background-color: #39cdcc;
           cursor: not-allowed;
         }
       }
@@ -359,7 +402,7 @@
 
   .login-left {
     min-height: 200px;
-    
+
     .logo-section {
       margin: 20px auto 10px;
     }
@@ -372,7 +415,7 @@
   .login-right {
     .login-form-container {
       padding: 20px;
-      
+
       .welcome-section {
         margin-bottom: 40px;
         text-align: center;
@@ -395,7 +438,7 @@
   .login-left {
     order: 2;
     min-height: 150px;
-    
+
     .logo-section {
       margin: 15px auto 10px;
     }
@@ -407,13 +450,13 @@
 
   .login-right {
     order: 1;
-    
+
     .login-form-container {
       padding: 30px 20px;
-      
+
       .welcome-section {
         margin-bottom: 30px;
       }
     }
   }
-} 
+}

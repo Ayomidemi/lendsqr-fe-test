@@ -1,45 +1,44 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { mockApi } from '../services/api';
-import '../styles/Login.scss';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { mockApi } from "../services/api";
+import "../styles/Login.scss";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    setError(''); // Clear error when user types
+    setError(""); // Clear error when user types
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       const response = await mockApi.login(formData.email, formData.password);
-      
+
       // Store token in localStorage
-      localStorage.setItem('auth_token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      
+      localStorage.setItem("auth_token", response?.token);
+      localStorage.setItem("user", JSON.stringify(response?.user));
+
       // Redirect to dashboard
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (err) {
-      setError('Invalid email or password. Please try again.');
-      console.error('Login error:', err);
+      setError("Invalid email or password. Please try again.");
+      console.error("Login error:", err);
     } finally {
       setLoading(false);
     }
@@ -62,20 +61,24 @@ const Login: React.FC = () => {
       {/* Right Section - Login Form */}
       <div className="login-right">
         <div className="login-form-container">
+          {/* Mobile Logo */}
+          <div className="mobile-logo">
+            <img src="/logo.svg" alt="Lendsqr" className="mobile-logo-img" />
+          </div>
+
           <div className="welcome-section">
             <h1 className="welcome-title">Welcome!</h1>
             <p className="welcome-subtitle">Enter details to login.</p>
             <div className="reviewer-notice">
-              <p><strong>For Reviewers:</strong> Use <code>admin@lendsqr.com</code> / <code>password</code></p>
+              <p>
+                <strong>For Reviewers:</strong> Use{" "}
+                <code>admin@lendsqr.com</code> / <code>password</code>
+              </p>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="login-form">
-            {error && (
-              <div className="error-message">
-                {error}
-              </div>
-            )}
+            {error && <div className="error-message">{error}</div>}
 
             <div className="form-group">
               <input
@@ -92,7 +95,7 @@ const Login: React.FC = () => {
             <div className="form-group">
               <div className="password-input-container">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
@@ -118,10 +121,10 @@ const Login: React.FC = () => {
 
             <button
               type="submit"
-              className={`login-button ${loading ? 'loading' : ''}`}
+              className={`login-button ${loading ? "loading" : ""}`}
               disabled={loading}
             >
-              {loading ? 'LOGGING IN...' : 'LOG IN'}
+              {loading ? "LOGGING IN..." : "LOG IN"}
             </button>
           </form>
         </div>
@@ -130,4 +133,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login; 
+export default Login;

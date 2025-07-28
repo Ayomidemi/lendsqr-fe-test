@@ -506,7 +506,7 @@
   animation: slideInRight 0.3s ease-out;
 
   @media (max-width: $breakpoint-md) {
-    top: 100px;
+    bottom: 30px;
     right: 16px;
     left: 16px;
   }

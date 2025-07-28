@@ -2,13 +2,14 @@
 
 .navbar {
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
   padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100000;
   width: 100%;
   box-sizing: border-box;
@@ -53,6 +54,10 @@
       align-items: center;
       flex-shrink: 0;
 
+      @media (max-width: $breakpoint-lg) {
+        display: none;
+      }
+
       .navbar-logo {
         width: 173.76px;
         height: 36px;
@@ -68,18 +73,7 @@
       margin-left: 76px;
 
       @media (max-width: $breakpoint-lg) {
-        width: 300px;
-        margin-left: 24px;
-      }
-
-      @media (max-width: $breakpoint-md) {
-        width: 250px;
-        margin-left: 16px;
-      }
-
-      @media (max-width: $breakpoint-sm) {
-        width: 200px;
-        margin-left: 12px;
+        display: none;
       }
 
       .search-input {
@@ -177,6 +171,10 @@
         text-decoration: underline;
         text-decoration-color: #213f7d;
         text-underline-offset: 2px;
+
+        @media (max-width: $breakpoint-lg) {
+          display: none;
+        }
 
         &:hover {
           background-color: rgba(57, 205, 204, 0.1);
