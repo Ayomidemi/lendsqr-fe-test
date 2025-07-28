@@ -146,7 +146,9 @@ const Dashboard: React.FC = () => {
   };
 
   const handleViewDetails = () => {
-    console.log("View details for user:", selectedUserId);
+    if (selectedUserId) {
+      navigate(`/users/${selectedUserId}`);
+    }
     setActionDropdownOpen(false);
   };
 

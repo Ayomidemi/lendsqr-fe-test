@@ -7,13 +7,13 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  height: calc(100vh - 90px); // Subtract navbar height
+  height: 100vh;
   left: 0;
-  top: 0; // Start below navbar
-  margin-top: 90px;
+  top: 0;
   z-index: 1000;
   transition: transform 0.3s ease;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  padding-top: 90px;
 
   @media (max-width: $breakpoint-lg) {
     transform: translateX(-100%);
@@ -35,7 +35,8 @@
   }
 
   .switch-organization {
-    padding: 32px 24px 24px 24px;
+    padding: 32px 26px 16px 26px;
+    flex-shrink: 0;
 
     .switch-org-button {
       width: 100%;
@@ -44,7 +45,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 16px;
+      padding: 12px 0px;
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -84,6 +85,7 @@
     flex: 1;
     padding: 0 24px;
     overflow-y: auto;
+    min-height: 0;
 
     .nav-section {
       margin-bottom: 32px;
@@ -148,8 +150,9 @@
   }
 
   .sidebar-footer {
-    padding: 24px;
+    padding: 10px !important;
     border-top: 1px solid #e5e5e5;
+    flex-shrink: 0;
 
     .logout-button {
       width: 100%;
@@ -158,8 +161,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 16px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 4px;
       cursor: pointer;
       transition: all 0.2s ease;
       color: #213f7d;
