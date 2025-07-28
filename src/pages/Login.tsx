@@ -81,8 +81,16 @@ const Login: React.FC = () => {
             {error && <div className="error-message">{error}</div>}
 
             <div className="form-group">
+              <label
+                htmlFor="email"
+                className="form-label"
+                style={{ display: "none" }}
+              >
+                Email
+              </label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -93,9 +101,17 @@ const Login: React.FC = () => {
             </div>
 
             <div className="form-group">
+              <label
+                htmlFor="password"
+                className="form-label"
+                style={{ display: "none" }}
+              >
+                Password
+              </label>
               <div className="password-input-container">
                 <input
                   type={showPassword ? "text" : "password"}
+                  id="password"
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}

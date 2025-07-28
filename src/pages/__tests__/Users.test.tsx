@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import "@testing-library/jest-dom";
 import Users from "../Users";
 
 // Mock the API
@@ -85,7 +86,9 @@ describe("Users Page", () => {
     renderWithRouter(<Users />);
 
     await waitFor(() => {
-      expect(screen.getByText("Users")).toBeInTheDocument();
+      expect(
+        screen.getByRole("heading", { name: "Users" })
+      ).toBeInTheDocument();
     });
   });
 
@@ -93,7 +96,9 @@ describe("Users Page", () => {
     renderWithRouter(<Users />);
 
     await waitFor(() => {
-      expect(screen.getByText("Adedeji")).toBeInTheDocument();
+      // Check for table data specifically
+      const tableCells = screen.getAllByText("Adedeji");
+      expect(tableCells.length).toBeGreaterThan(0);
       expect(screen.getByText("adedeji@lendsqr.com")).toBeInTheDocument();
       expect(screen.getByText("08078903721")).toBeInTheDocument();
       expect(screen.getByText("Active")).toBeInTheDocument();

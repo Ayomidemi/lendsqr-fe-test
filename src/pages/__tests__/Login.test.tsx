@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import '@testing-library/jest-dom';
 import Login from '../Login';
 
 // Mock the API
@@ -149,6 +150,9 @@ describe('Login Component', () => {
         message: 'Login successful'
       });
       
+      // Clear localStorage before test
+      localStorage.clear();
+      
       renderLogin();
       
       const emailInput = screen.getByLabelText('Email');
@@ -163,8 +167,10 @@ describe('Login Component', () => {
         expect(mockNavigate).toHaveBeenCalledWith('/dashboard');
       });
       
-      expect(localStorage.getItem('auth_token')).toBe('mock-token');
-      expect(localStorage.getItem('user')).toBe(JSON.stringify({ id: '1', email: 'admin@lendsqr.com', name: 'Admin' }));
+      await waitFor(() => {
+        expect(localStorage.getItem('auth_token')).toBe('mock-token');
+        expect(localStorage.getItem('user')).toBe(JSON.stringify({ id: '1', email: 'admin@lendsqr.com', name: 'Admin' }));
+      });
     });
 
     it('should show loading state during login', async () => {

@@ -263,7 +263,9 @@ const Users: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="loading-spinner"></div>;
+    return (
+      <div className="loading-spinner" data-testid="loading-spinner"></div>
+    );
   }
 
   return (
